@@ -1,0 +1,17 @@
+
+@{
+    //  var item = Sitecore.Context.Database.GetItem("/sitecore/content/Home/Demo/Websitesettings/Localsettings");
+    var item = Sitecore.Context.Database.GetItem("{3A399232-1218-4AA2-B544-98AEB9821223}");
+}
+
+
+        <div class="container">
+            <div class="jumbotron text-white bg-primary">
+                <h1 class="display-3"> @Html.Sitecore().Field("Header-Title", item)</h1>
+                <p class="lead">  @Html.Sitecore().Field("Header-Subtitle", item)</p>
+            </div>
+        </div><!-- <a href="https://jss.sitecore.com/" class="text-light">Sitecore</a> /.container -->
+
+
+
+

@@ -1,0 +1,151 @@
+<!--<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+  <div class="container">
+ <div class="row">-->
+<!-- Begin Repeating Elements Area -->
+<!-- Begin Repeating Element-->
+<!--<div class="col-md-4 " >
+      <div class="card">
+      <img class="card-img-top" src="~/HTML template and PDF/HTML Templates/HTML Templates/assets/images/developer.jpg" alt="Card image cap">
+        <div class="card-body bg-light">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="card-title">Long blog post title</h3>
+          <div class="mb-1 text-muted">Dec 11, 2018</div>
+          <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-warning btn-block" >Read on</a>
+          </br></br></br></br></br></br>
+        </div>
+</div>
+</div>
+<div class="col-md-4 ">
+<div class="card">
+<img class="card-img-top" src="~/HTML template and PDF/HTML Templates/HTML Templates/assets/images/animals.jpg" alt="Card image cap">
+        <div class="card-body bg-light ">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="card-title">Super long blog post title</h3>
+          <div class="mb-1 text-muted">Dec 1, 2018</div>
+          <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content. Some
+            quick example text to build on the Blog post title and make up the bulk of the card's content. Some quick
+            example text to build on the Blog post title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-warning btn-block">Read on</a>
+        </div>
+</div>
+</div>
+<div class="col-md-4 ">
+<div class="card">
+<img class="card-img-top" src="~/HTML template and PDF/HTML Templates/HTML Templates/assets/images/people.jpg" alt="Card image cap">
+        <div class="card-body bg-light ">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="card-title">Blog post title</h3>
+          <div class="mb-1 text-muted">Nov 21, 2018</div>
+          <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-warning btn-block">Read on</a>
+          </br></br></br></br></br></br>
+        </div></div></div>
+      <div class="col-md-4">
+      <div class=" card">
+      <img class="card-img-top" src="~/HTML template and PDF/HTML Templates/HTML Templates/assets/images/arch.jpg" alt="Card image cap">
+        <div class="card-body bg-light ">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="card-title">Blog post title</h3>
+          <div class="mb-1 text-muted">Nov 13, 2018</div>
+          <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-warning btn-block">Read on</a>
+
+        </div></div></div>
+      <div class="col-md-4" style="margin-top:5px">
+      <div class="card">
+      <img class="card-img-top" src="~/HTML template and PDF/HTML Templates/HTML Templates/assets/images/366.jpg" alt="Card image cap">
+        <div class="card-body bg-light ">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="card-title">Blog post title</h3>
+          <div class="mb-1 text-muted">Oct 31, 2018</div>
+          <p>Some quick example text to build on the Blog post title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-warning btn-block">Read on</a>
+        </div></div>
+      </div>
+</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>-->
+
+
+
+@*@using ProjectSolution.Models
+
+@{
+    Layout = null;
+    var item1 = Sitecore.Context.Database.GetItem("{3A399232-1218-4AA2-B544-98AEB9821223}");
+    Sitecore.Data.Items.Item contextItem = Sitecore.Context.Item;
+    var currentItem = Sitecore.Context.Database.GetItem(contextItem.ID);
+
+}
+
+<div>
+    <main role="main" class="container blog-post-detail">
+        <div class="row">
+            <div class="blog-post-detail-card card col-lg-12">
+                <img class="card-img-top" @Html.Sitecore().Field("BlogSmallImage", Model)
+                <div class="card-body bg-light">
+                    <strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Category")</strong>
+                    <h3 class="card-title">@Html.Sitecore().Field("BlogCardTitle")</h3>
+                    <div class="mb-1 text-muted">@Html.Sitecore().Field("PostedDate", new { format = "yyyy-MMM-dd" })</div>
+                    @Html.Sitecore().Field("LongDescription")
+                    <div class="blog-detail-tag-list">
+                        <span class="read-more-heading">@Html.Sitecore().Field("ArticleReadMoreLabel", item1)</span>
+
+
+                        @{
+                            Sitecore.Data.Fields.MultilistField multilistField = currentItem.Fields["Tags"];
+                            if (multilistField != null)
+                            {
+                                foreach (Sitecore.Data.Items.Item Tagitms in multilistField.GetItems())
+                                {
+                                    string name = Tagitms.Name;
+                                    <a class="btn btn-info" href="#" role="button">@name</a>
+                                }
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>*@
+<main role="main" class="container blog-post-detail">
+    <div class="row">
+        <div class="blog-post-detail-card card col-lg-12">
+
+            @Html.Sitecore().Field("ArticleSmallImage", new { @class = "card-img-top" })
+            <div class="card-body bg-light">
+                <h3 class="card-title">@Html.Sitecore().Field("Title")</h3>
+                <div class="mb-1 text-muted">@Html.Sitecore().Field("PostedDate")</div>
+
+                @Html.Sitecore().Field("LongDescription")
+
+
+                <div class="blog-detail-tag-list">
+                    <span class="read-more-heading">Read more: </span>
+                    <a class="btn btn-info" href="#" role="button">Tag</a>
+                    <a class="btn btn-info" href="#" role="button">Super Extra Long Tag</a>
+                    <a class="btn btn-info" href="#" role="button">Extra Long Tag</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+@*@using ProjectSolution.Controllers
+.Models
+@{
+    Layout = null;
+    var item = Sitecore.Context.Database.GetItem("{3A399232-1218-4AA2-B544-98AEB9821223}"); }*@
+@*}
+<html>
+<head>
+    <link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+    <link rel="stylesheet" href="~/assets/css/blogsite.css">
+</head>
+
+<body>
+
+    <main role="main" class="container blog-posts">
+        <div class="row">
+            @foreach (BlogCard Postcards in (List<BlogCard>)ViewBag.BlogCards)
+            {
+
+                <div class="blog-post-card card col-lg-4 col-md-6">
+                    @Html.Sitecore().Field("BlogSmallImage", Postcards.sitecoreItem, new { @class = "card-img-top" })
+                    <div class="card-body bg-light">
+                        <strong class="d-inline-block mb-2 text-success">@Postcards.Category</strong>
+                        <h3 class="card-title">@Postcards.BlogTitle</h3>
+                        <div class="mb-1 text-muted">@Postcards.date</div>
+                        <p>@Postcards.ShortDesc</p>
+                        <a href="@Postcards.BlogURL" class="btn btn-warning btn-block">@Postcards.Readonbtn</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+</body>
+</html>*@
+
+
+@model IEnumerable<ProjectSolution.Models.BlogCard>
+
+@*@Html.Sitecore().Field("CreatedDate", Model)
+    @Html.Sitecore().Field("SmallDescription", Model)
+*@
+
+
+<br>
+
+<div class="row">
+    <!-- Begin Repeating Elements Area -->
+    <!-- Begin Repeating Element-->
+
+    @foreach (var data in Model)
+    {
+        <div class="blog-post-card card col-lg-4 col-md-6">
+            <img src="@data.imgsrc" alt="@data.imgalt" class="card-img-top" />
+            <div class="card-body bg-light">
+                @*<strong class="d-inline-block mb-2 text-success">@data.Category</strong>*@
+                <h3 class="card-title">@data.BlogTitle</h3>
+                <div class="mb-1 text-muted">@data.Posteddate</div>
+                <p>@data.ShortDesc</p>
+                <a href="@Sitecore.Links.LinkManager.GetItemUrl(Sitecore.Context.Database.GetItem(@data.BlogId))"
+                   class="btn btn-warning btn-block">Read on</a>
+            </div>
+        </div>
+    }
+    <!-- End Repeating Element-->
+    <!-- End Repeating Elements Area -->
+
+
+
+</div>
+
+</main>
+
+

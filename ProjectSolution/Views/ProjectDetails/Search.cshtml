@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+
+
+@using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+{
+    @Html.Sitecore().FormHandler()
+
+    <div class="container">
+
+        <div class="main-search">
+            <div class="input-group">
+                @Html.TextBox("searchInput", "", new { @class = "form-control", placeholder = "Search", autocomplete = "off" })
+                <div class="input-group-append">
+
+                    <input type="submit" id="btnSearch" class="btn btn-dark" @*value=@Html.Sitecore().Field("SearchButtonText", item)*@ />
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
